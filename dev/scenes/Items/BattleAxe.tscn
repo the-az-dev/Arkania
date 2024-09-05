@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://beji08dciu55n"]
+
+[ext_resource type="Script" path="res://dev/scripts/item.gd" id="1_jtfby"]
+[ext_resource type="Texture2D" uid="uid://c8gpsbd8c0x8x" path="res://assets/dev/sprites/axe lvl 2 tile.png" id="2_qesmg"]
+
+[node name="BattleAxe" type="Node2D" groups=["items"]]
+script = ExtResource("1_jtfby")
+item_name = "Battle Axe"
+item_icon_path = ExtResource("2_qesmg")
+is_stackable = true
+durability = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.785398
+texture = ExtResource("2_qesmg")

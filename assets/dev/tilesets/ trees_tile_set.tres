@@ -1,0 +1,94 @@
+[gd_resource type="TileSet" load_steps=24 format=3 uid="uid://cthar8itm0r5f"]
+
+[ext_resource type="Texture2D" uid="uid://by8xq70x6k4xj" path="res://assets/dev/sprites/grass tile.png" id="1_0lhbm"]
+[ext_resource type="Texture2D" uid="uid://2qdtxiknqs7b" path="res://assets/dev/sprites/grass inside tile.png" id="2_p0ry7"]
+[ext_resource type="Texture2D" uid="uid://b6f8t3gjxvdqq" path="res://assets/dev/sprites/players default selection active.png" id="3_g2em3"]
+[ext_resource type="Texture2D" uid="uid://d2sowd1xs7sob" path="res://assets/dev/sprites/players default selection inactive.png" id="4_inahg"]
+[ext_resource type="Texture2D" uid="uid://cta5bhvccouce" path="res://assets/dev/sprites/dirt inside tile.png" id="5_kggxn"]
+[ext_resource type="Texture2D" uid="uid://qpwvphaok2no" path="res://assets/dev/sprites/dirt tile.png" id="6_kigxq"]
+[ext_resource type="Texture2D" uid="uid://d3wu7xc3ddh4k" path="res://assets/dev/sprites/tree tile.png" id="7_6p6fk"]
+[ext_resource type="Texture2D" uid="uid://cgvk4l2jv71h8" path="res://assets/dev/sprites/axe tile.png" id="8_ky5tt"]
+[ext_resource type="Texture2D" uid="uid://bqsg33bx6o0kq" path="res://assets/dev/sprites/test mosh.png" id="9_tvka7"]
+[ext_resource type="Texture2D" uid="uid://bh8wmt8m2w3fh" path="res://assets/dev/sprites/invisible selection on tile.png" id="10_e7xfa"]
+[ext_resource type="Texture2D" uid="uid://cfiusijg4wkho" path="res://assets/dev/sprites/visible selection on tile.png" id="11_c036e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_67nbq"]
+rough = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4oc5"]
+texture = ExtResource("1_0lhbm")
+texture_region_size = Vector2i(64, 64)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 22.0971, 32, 22, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oay4v"]
+texture = ExtResource("2_p0ry7")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_370d2"]
+texture = ExtResource("3_g2em3")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d67sh"]
+texture = ExtResource("4_inahg")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s43at"]
+texture = ExtResource("5_kggxn")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6cbvn"]
+texture = ExtResource("6_kigxq")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xa8nb"]
+texture = ExtResource("7_6p6fk")
+texture_region_size = Vector2i(192, 384)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 180)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, -27, 9, -32, 24.5, -19, 39, 0, 40, 14, 32, 23, 22.5, 32, 8.5, 32, -32, 32, -42, 26.5, -45.5, 12, -45, -1.5, -39.5, -12.5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ouj3m"]
+texture = ExtResource("8_ky5tt")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4fyf"]
+texture = ExtResource("9_tvka7")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_67m3j"]
+texture = ExtResource("10_e7xfa")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6gba5"]
+texture = ExtResource("11_c036e")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[resource]
+resource_local_to_scene = true
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 255
+physics_layer_0/collision_mask = 255
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_67nbq")
+sources/0 = SubResource("TileSetAtlasSource_h4oc5")
+sources/999 = SubResource("TileSetAtlasSource_6gba5")
+sources/998 = SubResource("TileSetAtlasSource_67m3j")
+sources/1 = SubResource("TileSetAtlasSource_oay4v")
+sources/2 = SubResource("TileSetAtlasSource_s43at")
+sources/3 = SubResource("TileSetAtlasSource_6cbvn")
+sources/997 = SubResource("TileSetAtlasSource_b4fyf")
+sources/4 = SubResource("TileSetAtlasSource_xa8nb")
+sources/1000 = SubResource("TileSetAtlasSource_370d2")
+sources/1001 = SubResource("TileSetAtlasSource_d67sh")
+sources/800 = SubResource("TileSetAtlasSource_ouj3m")

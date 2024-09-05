@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://1qjd8ofs21ee"]
+
+[ext_resource type="PackedScene" uid="uid://paiam1edybx8" path="res://dev/scenes/Inventory.tscn" id="1_02v3v"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hint" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 144.0
+offset_top = 448.0
+offset_right = -112.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inventory" parent="." instance=ExtResource("1_02v3v")]
+layout_mode = 1
+offset_left = 768.0
+offset_top = 328.0
+offset_bottom = -72.0

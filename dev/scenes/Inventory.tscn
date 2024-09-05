@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://paiam1edybx8"]
+
+[ext_resource type="PackedScene" uid="uid://cyien67hhska0" path="res://dev/scenes/ItemTooltip.tscn" id="1_hlotj"]
+[ext_resource type="Script" path="res://dev/scripts/inventory.gd" id="1_ykm25"]
+[ext_resource type="PackedScene" uid="uid://bd6pa3uniiy77" path="res://dev/scenes/InventorySlot.tscn" id="2_6kfua"]
+[ext_resource type="PackedScene" uid="uid://l45im0tfmsq6" path="res://dev/scenes/InventorySlotEmpty.tscn" id="3_r28os"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mv6u"]
+bg_color = Color(0.534786, 0.386939, 0.217033, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+shadow_size = 5
+
+[node name="Inventory" type="Control" node_paths=PackedStringArray("inventory_grid", "armor_inventory_grid", "tooltip")]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 712.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ykm25")
+inventory_grid = NodePath("Panel/Margin/Inventory/GridContainer")
+armor_inventory_grid = NodePath("Panel/Armor Inventory/GridContainer")
+inventory_slot_scene = ExtResource("2_6kfua")
+inventory_empty_slot_scene = ExtResource("3_r28os")
+tooltip = NodePath("ItemTooltip")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6mv6u")
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.000183105
+offset_top = 240.0
+offset_right = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+metadata/_edit_use_anchors_ = true
+
+[node name="Inventory" type="ScrollContainer" parent="Panel/Margin"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Panel/Margin/Inventory"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="Armor Inventory" type="CenterContainer" parent="Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = 24.0
+offset_right = -112.0
+offset_bottom = -376.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Panel/Armor Inventory"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="ItemTooltip" parent="." instance=ExtResource("1_hlotj")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_bottom = 0.0
+grow_vertical = 1

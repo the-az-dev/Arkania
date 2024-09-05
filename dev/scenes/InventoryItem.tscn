@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://0xckc2r3udxy"]
+
+[ext_resource type="Texture2D" uid="uid://cgvk4l2jv71h8" path="res://assets/dev/sprites/axe tile.png" id="1_1paob"]
+[ext_resource type="Script" path="res://dev/scripts/inventoryItem.gd" id="1_kuach"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dk0jl"]
+bg_color = Color(0.603922, 0.603922, 0.603922, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cv3vu"]
+bg_color = Color(0, 0.6, 0.2, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq63m"]
+size = Vector2(64, 64)
+
+[node name="InventoryItem" type="Control" node_paths=PackedStringArray("sprite", "amountLabel", "durabilityProgress") groups=["inventory_slots", "items"]]
+y_sort_enabled = true
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kuach")
+sprite = NodePath("Sprite2D")
+amountLabel = NodePath("Label")
+durabilityProgress = NodePath("ProgressBar")
+item_name = null
+is_stackable = true
+durability = null
+amount = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4.76837e-07, 2.38419e-07)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_1paob")
+region_filter_clip_enabled = true
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 24.0
+text = "0
+"
+horizontal_alignment = 1
+justification_flags = 131
+clip_text = true
+uppercase = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -24.0
+offset_top = 16.0
+offset_right = 24.0
+offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_dk0jl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cv3vu")
+allow_greater = true
+allow_lesser = true
+show_percentage = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-32, -32)
+shape = SubResource("RectangleShape2D_pq63m")

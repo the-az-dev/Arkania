@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce8snd0c6ccfl"]
+
+[ext_resource type="Texture2D" uid="uid://bqsg33bx6o0kq" path="res://assets/dev/sprites/test mosh.png" id="1_kvr3v"]
+[ext_resource type="Script" path="res://dev/scripts/player.gd" id="1_q33af"]
+[ext_resource type="PackedScene" uid="uid://paiam1edybx8" path="res://dev/scenes/Inventory.tscn" id="3_eqdnm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdapn"]
+size = Vector2(32, 16)
+
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("inventory")]
+y_sort_enabled = true
+script = ExtResource("1_q33af")
+inventory = NodePath("CanvasLayer/UI/Inventory")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 1023
+visibility_layer = 1023
+y_sort_enabled = true
+shape = SubResource("RectangleShape2D_hdapn")
+
+[node name="Weapon" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("1_kvr3v")
+flip_h = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 8)
+ignore_rotation = false
+zoom = Vector2(2.25, 2.25)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" parent="CanvasLayer/UI" instance=ExtResource("3_eqdnm")]
+layout_mode = 1
+rows = null
+cols = null
+ai_rows = null
+ai_cols = null
